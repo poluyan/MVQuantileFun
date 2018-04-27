@@ -3,8 +3,6 @@ n = 100
 x = seq(-10,10,length=n)
 y = seq(-10,10,length=n)
 
-#x
-
 # exponential centers
 centers = NULL
 centers = rbind (centers,  cbind (3, 3))
@@ -23,3 +21,11 @@ threeExp = function (x,y)
 
 # PDF
 persp( outer( x, y, Vectorize(threeExp) ) )
+
+# discretization
+pdf <- matrix(nrow=n, ncol=n) 
+for(i in 1:n)
+{
+  for(j in 1:n)
+    pdf[i,j] <- threeExp(x[i],y[j])
+}
