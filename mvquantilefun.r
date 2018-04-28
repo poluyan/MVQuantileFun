@@ -29,3 +29,7 @@ for(i in 1:n)
   for(j in 1:n)
     pdf[i,j] <- threeExp(x[i],y[j])
 }
+
+cdf <- matrix(nrow=n, ncol=n)
+for(i in 1:n)
+  cdf[i,] <- cumsum(pdf[i,])
