@@ -33,3 +33,5 @@ for(i in 1:n)
 cdf <- matrix(nrow=n, ncol=n)
 for(i in 1:n)
   cdf[i,] <- cumsum(pdf[i,])
+
+col <- cdf[,ncol(cdf)]
