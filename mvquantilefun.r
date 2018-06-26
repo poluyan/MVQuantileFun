@@ -36,9 +36,7 @@ for(i in 1:n)
 
 col <- cdf[,ncol(cdf)]
 
-s = sum(col)
-for(i in 1:n)
-  col[i] = col[i]/s
+col = col/sum(col)
 
 col <- c(0, cumsum(col))
 
@@ -48,16 +46,8 @@ row <- matrix(nrow=n, ncol=n + 1)
 for(i in 1:n)
 {
   t <- pdf[i,]
-
-  #plot(t)
-
-  s <- sum(t)
-  for(j in 1:n)
-    t[j] <- t[j]/s
-
+  t <- t/sum(t)
   t <- cumsum(t)
-
-  #plot(t)
 
   row[i,1] <- 0
   for(j in 2:(n+1))
